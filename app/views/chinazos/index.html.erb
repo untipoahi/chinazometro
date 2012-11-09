@@ -1,0 +1,30 @@
+<div class="wrapper">
+	<div class="header">
+		<img class="logo" src="assets/charlie.png"/>
+		<h1 class="pageTitle">Chinazómetro</h1>
+		<div class="h3">El top de los chinazos</div>
+		<div id="acusar_link"><a href="/chinazos/new">Acusa un Chinazo</a></div>
+		<div class="clear"></div>
+	</div>
+	<div class="mainContent">
+		<div class="clear"></div>
+		<div id="container">
+			<%= render "chinazos" %>
+		</div>
+		<%= paginate @chinazos %>
+	</div>
+	<div class="column_wrapper">
+		<div class="ranking">
+			<div class="table_title">Tabla de Posiciones</div>
+			<%= render "buscarPuntos" %>
+		</div>
+		<div class="comentarios_wrap">
+			<div class="table_title">Últimos Comentarios</div>
+			<div id="ultimos_comentarios_container">
+				<%= render "indexComentarios" %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<%= session[:current_user] %>

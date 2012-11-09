@@ -1,0 +1,209 @@
+// Place all the styles related to the chinazos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.wrapper { width: 700px; margin: 0 auto; }
+div.header { width:100%; }
+
+.mainContent { float:left; width:450px; display:block; }
+
+.column_wrapper { width:200px; display:block; float:right; }
+
+#container, #comentarios_container { width:450px; }
+
+textarea.comentario{ display:block; }
+
+div.comentario { margin-bottom: 15px;}
+
+div.comentario span#titulo{ display: block; border-bottom: 1pt solid black; }
+
+body { font-family: arial; }
+
+.pageTitle { font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;   }
+
+div.h3 { padding-bottom: 10px; }
+
+#acusar_link { 	
+				font-weight: bold;
+				border: 1pt solid black;
+				font-family: palatino, "Palatino Linotype", "Palatino LT STD", "Book Antigua", Georgia, serif;
+				position: relative;
+				margin-left: 190px;
+				max-width: 140px;
+				padding: 5px;
+				text-align: center;
+				background-color: #ffffff;
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				border-radius: 15px;
+			}
+
+#acusar_link:hover { cursor: pointer; background-color: #C1C1C1; }
+
+.default-link, #acusar_link a:visited, #acusar_link a:link, #acusar_link a:active, #acusar_link a:hover { text-decoration: none; color: inherit; }
+
+div.content{
+	max-width:16px;
+	height: 65px;
+	float:left;
+	margin-right: 8px;
+	padding: 5px 8px;
+}
+
+div.box{
+	margin-bottom: 15px;
+	max-width: 450px;
+	margin: 0 auto 10px auto;
+}
+
+.chinazoWrap { padding: 5px 0; }
+
+.level_1 div.content{
+	background-color: #FF1493;
+	color:white;
+}
+
+div.level_1 {
+	border: 1pt dashed #FF1493;
+}
+
+.level_4 div.content{
+	background-color: #FF69B4;
+	color: white;
+}
+
+div.level_4 {
+	border: 1pt dashed #FF69B4;
+	border-left: none;
+}
+
+.level_3 div.content{
+	background-color: #9370DB;
+	color:white;
+}
+
+div.level_3{
+	border: 1pt dashed #9370DB;
+}
+
+.level_2 div.content{
+	background-color: #FF00FF;
+	color:white;
+}
+
+div.level_2{
+	border: 1pt dashed #FF00FF;
+}
+
+.level_5 div.content{
+	background-color: #FFC0CB
+}
+
+div.level_5 {
+	border: 1pt dashed #FFC0CB;
+}
+
+.level_6 div.content{
+	background-color: #E6E6FA
+}
+
+div.level_6{
+	border: 1pt dashed #E6E6FA;
+}
+
+div.level_7{
+	border: 1pt dashed #D8BFD8;
+}
+
+.level_7 div.content{
+	background-color: #D8BFD8
+}
+
+.level_8 div.content{
+	background-color: #DDA0DD
+}
+
+div.level_8 {
+	border: 1pt dashed #DDA0DD;	
+}
+
+.level_9 div.content{
+	background-color: #EE82EE
+}
+
+div.level_9 {
+	border: 1pt dashed #EE82EE;	}
+
+.level_10 div.content {
+	background-color: #DA70D6}
+
+div.level_10{
+	border: 1pt dashed #DA70D6;
+}
+
+/********CHINAZO*********************************************/
+
+div.chinazo { max-width: 500px; }
+div.chinazo hr { color:#D8BFD8; }
+.chinazoTitle { font-size: 26pt; 
+				text-transform: uppercase; 
+				letter-spacing: 2pt; 
+				font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,"Apple Gothic",sans-serif; 
+				color:#9370DB;
+			}
+
+.chinazoContent { font-size: 14pt; 
+				  letter-spacing: 1pt; 
+				  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace; 
+				  background-image: url('/assets/quote.png');
+				  background-repeat: no-repeat;
+				  background-position: top-left;
+				  padding-left: 45px;
+				  padding-top: 8px;
+				  text-align: justify;
+				}
+.star-rating-control { margin-top: 0; margin-left: 15px; display: block; }
+
+label.btnComentario { 	
+				font-weight: bold;
+				border: 1pt solid black;
+				font-family: palatino, "Palatino Linotype", "Palatino LT STD", "Book Antigua", Georgia, serif;
+				font-size: 9pt;
+				padding: 3px 8px;
+				text-align: center;
+				background-color: #ffffff;
+				-webkit-border-radius: 9px;
+				-moz-border-radius: 9px;
+				border-radius: 9px;
+			}
+
+label.btnComentario:hover { cursor: pointer; background-color: #C1C1C1; }
+
+textarea.comentario { width: 450px; border: 1pt solid black; }
+
+.cantidadChinazos { display:inline-block; float:right; margin-right:5px; }
+
+.puntaje_puntos { width: 18px; text-align: center; display:inline-block; }
+.puntaje_nombre { 
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top; }
+
+.ranking, .comentarios_wrap { border: 1pt solid #5B5B5B; padding: 2px 0px 2px 10px; 
+			-webkit-border-radius: 20px;
+			-webkit-border-bottom-left-radius: 0;
+			-moz-border-radius: 20px;
+			-moz-border-radius-bottomleft: 0;
+			border-radius: 20px;
+			border-bottom-left-radius: 0;
+			margin-bottom: 20px;
+			overflow:hidden;
+		}
+
+.comentario_linea { border-bottom: 1pt dotted #5B5B5B; font-size:10pt; }
+.comentario_linea:hover { background-color: #CECECE }
+
+.table_title{ padding:3px; text-align:center; border-bottom: 1pt dotted #5B5B5B; }

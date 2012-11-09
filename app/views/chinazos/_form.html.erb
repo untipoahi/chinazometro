@@ -1,0 +1,26 @@
+<% if flash[:errors].nil? == false %>
+	<div class='errors'><%= flash[:errors] %></div>
+<% end %>
+<%= form_for @chinazo do |f| %>
+<% if @chinazo.errors.any? %>
+	<div id="ErrorText">
+		<h2><%= pluralize(@chinazo.errors.count, "error") %> ha evitado que se guarde éste chinazo: </h2>
+		<ul>
+			<% @chinazo.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+	<p>
+		<%= f.label :nombre, "Quién se lo lanzó" %><br/>
+		<%= f.text_field :nombre %>
+	</p>
+	<p>
+		<%= f.label :descripcion, "Qué dijo?" %><br/>
+		<%= f.text_area :descripcion %>
+	</p>
+	<p>
+    	<%= f.submit %>
+ 	</p>
+<% end %>

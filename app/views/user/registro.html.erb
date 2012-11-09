@@ -1,0 +1,32 @@
+<h3>Registro</h3>
+<% if @user.errors.any? %>
+	<div id="ErrorText">
+		<h2><%= pluralize(@user.errors.count, "error") %> ha evitado que se guarde éste user: </h2>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<%= form_for @user, :url => { :action => 'create'} do  |f| %>
+	<p>
+		<%= f.label :nombre, "Nombre" %><br/>
+		<%= f.text_field :nombre %>
+	</p>
+	<p>
+		<%= f.label :login, "Login" %><br/>
+		<%= f.text_field :login %>
+	</p>
+	<p>
+		<%= f.label :pass, "Contraseña" %><br/>
+		<%= f.password_field :pass %>
+	</p>
+	<p>
+		<%= f.label :pass_confirmation, "Confirmar Password" %><br/>
+		<%= f.password_field :pass_confirmation %>
+	</p>
+	<p>
+    	<%= f.submit %>
+ 	</p>
+<% end %>

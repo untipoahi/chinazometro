@@ -1,0 +1,10 @@
+<% @cont = 1
+   @comentarios.each do |comentario|  %>
+	<div class="box comentario">
+		<span id="titulo"><%= comentario.nombre %>:</span>
+		<span id="contenido"><%= auto_link(comentario.comentario) { | each | each[/\.(jpg|gif|png|bmp|tif)$/] ? %Q{<img src="#{each}" width="160px" class="embeddedImage" /> } : each }
+		%></span>
+		<div class="clear"></div>
+	</div>
+<% @cont = @cont + 1
+end %>

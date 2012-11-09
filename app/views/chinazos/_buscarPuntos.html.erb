@@ -1,0 +1,5 @@
+<% @count = 1
+@puntajes.each do |pato| %>
+	<div class="puntaje_linea"><span class="puntaje_puntos"><%= pato["puntos"] %></span> - <span class="puntaje_nombre"><%= pato["nombre"] %></span></div>
+<% @count = @count+1
+end %>

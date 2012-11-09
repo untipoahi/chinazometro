@@ -1,0 +1,49 @@
+<div class="wrapper">
+	<div class="chinazo">
+		<span class="chinazoTitle">
+			<%= @chinazo.nombre %>
+		</span>
+
+		<p class="chinazoContent">
+			<%= @chinazo.descripcion %>
+		</p>
+		<hr />
+	</div>
+
+	<p class="buttonsBlock">		
+		<% if session[:current_user_id] == @chinazo.users_id %>
+		    <%= link_to 'Editar', action: :edit, id: @chinazo.id %>
+		<% end %>
+	    <%= link_to 'Chinazometro', action: :index %>
+	</p>
+
+	<p class="formBlock">
+		<label class="rating">¿Qué tan feo te pareció este chinazo?</label>
+		<div class="clear"></div>
+		<input name="star1" title="Parcha" value="1" type="radio" class="star" checked="checked"/>
+		<input name="star1" title="Trolazo" value="2" type="radio" class="star"/>
+		<input name="star1" title="Epico!" value="3" type="radio" class="star"/>
+		<div class="clear"></div>
+	</p>
+
+
+	<%= form_tag comentarios_path, :id => 'comentariosForm', :remote => true do %>
+		<%= hidden_field_tag :chinazo_id, @chinazo.id %>
+		<p>
+			<%= label_tag :comentario, "Tienes algo que agregar?" %>
+			<%= text_area_tag :comentario, nil, :class => "comentario" %>
+		</p>
+
+			<% if flash[:errors].nil? == false %>
+				<div class='errors'><%= flash[:errors] %></div>
+			<% end %>
+		<p>
+			<%= label_tag 'Comentar', nil, :onclick => "$('#comentariosForm').submit();", :class => :btnComentario %>
+		</p>
+	<% end %>
+
+	<div class="clear"></div>
+	<div id="comentarios_container">
+		<%= render :partial => 'comentario/index' %>
+	</div>
+</div>

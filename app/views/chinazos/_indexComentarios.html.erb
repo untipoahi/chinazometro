@@ -1,0 +1,5 @@
+<% @count = 1
+@comentarios.each do |comentario| %>
+	<div class="comentario_linea"><a class="default-link" href="/chinazos/<%= comentario.chinazos_id %>"><span class="comentario_texto"><%= comentario.comentario %></span></a></div>
+<% @count = @count+1
+end %>

@@ -1,0 +1,17 @@
+<%= form_tag :controller => 'user', :action => :authenticate do %>
+	<p>
+		<%= label_tag :userName, "Login:" %>
+		<%= text_field_tag :userName %>
+	</p>
+	<p>
+		<%= label_tag :pass, "Contraseña:" %>
+		<%= password_field_tag :pass %>
+	</p>
+		<% if flash[:errors].nil? == false %>
+			<div class='errors'><%= flash[:errors] %></div>
+		<% end %>
+	<p>
+    	<%= submit_tag 'Login' %>
+ 	</p>
+ 	<%= link_to "Regístrate", action: :registro %>
+<% end %>

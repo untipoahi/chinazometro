@@ -1,0 +1,19 @@
+<% @cont = 1  
+   @chinazos.each do |chinazo|  %>
+	<div class="box level_<%= @cont %>">
+		<div class="content"><%= chinazo.puntos %> Pts.</div>
+		<div class="chinazoWrap">
+			<span id="titulo"><%= chinazo.nombre %>:</span>
+			<span class="contenido"><%= auto_link(chinazo.descripcion) { | each | each[/\.(jpg|gif|png|bmp|tif)$/] ? %Q{<img src="#{each}" width="160px" class="embeddedImage" /> } : each } %></span>
+		</div>
+		<div>
+			<%= link_to "Comentar", action: :show, id: chinazo.id %>
+			<% if session[:current_user_id] == chinazo.users_id %>
+			<%= link_to 'Eliminar', { action: :destroy, id: chinazo.id }, method: :delete, data: { confirm: 'Seguro?' } %>
+			<% end %>
+			<div class="cantidadChinazos"><%= chinazo.cantidad_comentarios %> <span>comentarios</span></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+<% @cont = @cont + 1
+end %>
