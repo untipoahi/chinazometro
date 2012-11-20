@@ -1,0 +1,14 @@
+<div id="menuBar">
+	<ul>
+		<li>
+			<% if session[:current_user] %>
+				<%= label_tag "Bienvenido #{session[:current_user]} mira" %>
+			<% else %>
+				<%= link_to "Login", "/login" %>
+			<% end %>
+		</li>
+		<li><a href="/chinazos"><span>Los mas votados</span></a></li>
+		<li><a href="/ultimos"><span>o Los Últimos</span></a></li>
+	</ul>
+	<div class="clear"></div>
+</div>

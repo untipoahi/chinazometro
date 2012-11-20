@@ -1,5 +1,5 @@
 <% @count = 1
 @puntajes.each do |pato| %>
-	<div class="puntaje_linea"><span class="puntaje_puntos"><%= pato["puntos"] %></span> - <span class="puntaje_nombre"><%= pato["nombre"] %></span></div>
+	<div class="puntaje_linea"><span class="puntaje_puntos"><%= pato["puntos"] %></span> - <a href='/user/<%= pato["nombre"] %>' class="default-link"><span class="puntaje_nombre"><%= pato["nombre"] %></span></a></div>
 <% @count = @count+1
 end %>

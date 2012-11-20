@@ -5,14 +5,6 @@ class Chinazo < ActiveRecord::Base
 	validates :nombre, presence: true, length: { minimum: 3 }
 	#before_save :serUserId
 
-	def getByUser(userName)
-		@usuario = User.find(:first, :conditions => "login = '#{userName}'")
-		unless @usuario.nil?
-			@chinazos = Chinazo.find(:all, :conditions => "users_id = '#{@usuario.id}'")
-			return @chinazos
-		end
-	end
-
 	def puntos
 		@puntos = Vote.sum(:value,  :conditions =>"chinazos_id = #{id}")
 		if @puntos.nil?

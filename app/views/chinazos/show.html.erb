@@ -5,7 +5,7 @@
 		</span>
 
 		<p class="chinazoContent">
-			<%= @chinazo.descripcion %>
+			<%= auto_link(@chinazo.descripcion) { | each | each[/\.(jpg|gif|png|bmp|tif)$/] ? %Q{<img src="#{each}" width="160px" class="embeddedImage" /> } : each } %>
 		</p>
 		<hr />
 	</div>

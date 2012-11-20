@@ -24,4 +24,5 @@ ChinazoParty::Application.routes.draw do
   get "comentarios/:chinazo_id" => "comentario#listPartial"
   get "puntajes" => "chinazos#buscarPuntos"
   get "comentarios" => "comentario#ultimosComentarios"
+  get "ultimos" => "chinazos#ultimos"
 end

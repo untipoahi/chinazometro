@@ -4,6 +4,7 @@
 
 
 $(document).ready ->$('#chinazo_nombre').autocomplete({source: "/ajax/users"})
+$(document).ready ->$('#buscar_nombre').autocomplete({source: "/ajax/users", select: (a,b) -> location.href = '/user/'+b.item.label })
 
 $(document).ready ->$('.star-rating-applied').click ->$.post(
             '/vote/new'

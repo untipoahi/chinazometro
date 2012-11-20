@@ -1,1 +1,32 @@
-<h3>Bienvenido <%= params[:login] %></h3>
+<div class="wrapper">
+	<div class="header">
+		<div class="header_wrapper">
+			<div class="box">
+				<span class="chinazoTitle">
+					<%= params[:login] %>
+				</span>
+				<hr />
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="firstColumn">
+		<div class="comentarios_wrap">
+			<div class="table_title">Últimos Comentarios</div>
+			<div id="ultimos_comentarios_container">
+				<% #render "chinazos/indexComentarios" %>
+			</div>
+		</div>
+	</div>
+	<div class="mainContent">
+		<div class="clear"></div>
+		<div id="container">
+			<%= render 'chinazos/chinazos' %>
+			<%= link_to "Todos los Chinazos", action: :index, :controller => 'chinazos' %>
+		</div>
+	</div>
+	<div class="column_wrapper">
+		
+	</div>
+</div>
+<div class="clear"></div>

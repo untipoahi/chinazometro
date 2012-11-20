@@ -4,18 +4,25 @@ class UserController < ApplicationController
 	end
 	def authenticate		
 		@user = User.find_by_login(params[:userName])
-		unless @user.signIn(params[:userName], params[:pass])
-			flash[:errors] = "Nombre de usuario o Contrasena incorrecta"
-			redirect_to action: :login
+		if @user
+			unless @user.signIn(params[:userName], params[:pass])
+				flash[:errors] = "Nombre de usuario o Contrasena incorrecta"
+				redirect_to action: :login
+			else
+				session[:current_user] = @user.login
+				session[:current_user_id] = @user.id
+				redirect_to "/chinazos"
+			end
 		else
-			session[:current_user] = @user.login
-			session[:current_user_id] = @user.id
-			redirect_to "/user/#{params[:userName]}"
+			flash[:errors] = "El usuario no existe"
+			redirect_to action: :login
 		end
 	end
 	def show
-		@chinazos = Chinazo.new
-		@chinazos_of_user = @chinazos.getByUser(params[:login])
+		@chinazos = Chinazo.find(:all, :conditions => "nombre = '#{params[:login]}'")
+		#@comentarios = nil
+		#@comentarios = Comentario.joins(:Chinazo).where("nombre = '#{params[:login]}'")
+		return @chinazos
 	end
 	def registro
 		if flash[:errors].nil?

@@ -27,8 +27,25 @@ class ChinazosController < ApplicationController
 	end
 
 	def show
-		@chinazo = Chinazo.find(params[:id])
-		@comentarios = Comentario.where('chinazos_id = ?', params[:id]).sort!{|a,b| b.updated_at <=> a.updated_at}
+		if params[:id].to_i != 0
+			@chinazo = Chinazo.find(params[:id])
+			@comentarios = Comentario.where('chinazos_id = ?', params[:id]).sort!{|a,b| b.updated_at <=> a.updated_at}
+		end
+	end
+
+	def ultimos
+		page = (params[:page] ||= 1).to_i
+	    items_per_page = 10
+
+		@chinazos = Chinazo.all(:order => "created_at desc")
+		@chinazos = Kaminari.paginate_array(@chinazos).page(page).per(items_per_page)
+
+		@puntajes = 
+		Vote.connection.select_all("select chinazos.nombre, sum(puntos.puntos) as puntos from  (select chinazos_id, sum(value) as puntos from votes group by chinazos_id) puntos join chinazos on puntos.chinazos_id = chinazos.id group by chinazos.nombre order by puntos desc limit 10")
+
+		@comentarios = Comentario.all(:order => "created_at desc",
+									  :limit => "10")
+		render 'index'
 	end
 	
 	def index
@@ -40,11 +57,10 @@ class ChinazosController < ApplicationController
 		@chinazos = Kaminari.paginate_array(@chinazos).page(page).per(items_per_page)
 
 		@puntajes = 
-		Vote.connection.select_all("select chinazos.nombre, sum(puntos.puntos) as puntos from  (select chinazos_id, sum(value) as puntos from votes group by chinazos_id) puntos join chinazos on puntos.chinazos_id = chinazos.id group by chinazos.nombre order by puntos desc")
+		Vote.connection.select_all("select chinazos.nombre, sum(puntos.puntos) as puntos from  (select chinazos_id, sum(value) as puntos from votes group by chinazos_id) puntos join chinazos on puntos.chinazos_id = chinazos.id group by chinazos.nombre order by puntos desc limit 10")
 
 		@comentarios = Comentario.all(:order => "created_at desc",
 									  :limit => "10")
-		
 	end
 
 	def edit

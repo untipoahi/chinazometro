@@ -7,9 +7,9 @@
 			<span class="contenido"><%= auto_link(chinazo.descripcion) { | each | each[/\.(jpg|gif|png|bmp|tif)$/] ? %Q{<img src="#{each}" width="160px" class="embeddedImage" /> } : each } %></span>
 		</div>
 		<div>
-			<%= link_to "Comentar", action: :show, id: chinazo.id %>
+			<%= link_to "Comentar", action: :show, id: chinazo.id , controller: :chinazos %>
 			<% if session[:current_user_id] == chinazo.users_id %>
-			<%= link_to 'Eliminar', { action: :destroy, id: chinazo.id }, method: :delete, data: { confirm: 'Seguro?' } %>
+			<%= link_to 'Eliminar', { action: :destroy, id: chinazo.id, controller: :chinazos }, method: :delete, data: { confirm: 'Seguro?' } %>
 			<% end %>
 			<div class="cantidadChinazos"><%= chinazo.cantidad_comentarios %> <span>comentarios</span></div>
 		</div>

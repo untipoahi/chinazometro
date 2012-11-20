@@ -41,3 +41,4 @@ gem 'jquery-rails'
 # para paginar
 gem 'kaminari'
 gem 'rails_autolink'
+gem 'thin'
